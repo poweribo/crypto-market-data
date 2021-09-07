@@ -1,0 +1,15 @@
+<form class="example-form">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Product</mat-label>
+    <input matInput
+           aria-label="Product"
+           [matAutocomplete]="auto"
+           [formControl]="productCtrl">
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" (optionSelected)="onProductSelect($event.option.value)">
+      <mat-option *ngFor="let product of filteredProducts | async" [value]="product">
+        <img class="example-option-img" aria-hidden src="/assets/cryptoicons/{{product.base_currency | lowercase}}.png" height="25">
+        <span>{{product.display_name}}</span>
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>

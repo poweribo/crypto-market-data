@@ -1,0 +1,22 @@
+<div fxLayout='column' fxLayoutGap="0px">
+
+    <div fxLayout="row" fxLayoutGap="10px" fxLayout.xs="column" class="container">            
+        <market-data-product-lookup (productSelected)='onProductSelection($event)'></market-data-product-lookup>      
+        <div fxLayoutAlign="start center">
+          <market-data-product-ticker></market-data-product-ticker>      
+        </div>
+    </div>
+
+    <div fxLayout="row" fxLayoutGap="0px" fxLayout.xs="column">      
+      <mat-card #bidsCard class="container">
+        <mat-card-title>Bids</mat-card-title>
+        <market-data-order-book #bids [side]="'buy'" [sortDirection]="'desc'"></market-data-order-book>
+      </mat-card>
+
+      <mat-card #asksCard class="container">
+        <mat-card-title>Asks</mat-card-title>
+        <market-data-order-book #asks [side]="'sell'" [sortDirection]="'asc'"></market-data-order-book>
+      </mat-card>      
+    </div>
+
+</div>

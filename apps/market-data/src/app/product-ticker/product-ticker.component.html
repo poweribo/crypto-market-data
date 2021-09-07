@@ -1,0 +1,8 @@
+<div class="box" *ngIf="productImgId !== ''">
+  <img aria-hidden src="/assets/cryptoicons/{{productImgId | lowercase}}.png" height="25">&nbsp;&nbsp;
+  <span>{{productLabel}}</span>&nbsp;&nbsp;
+  <span [ngClass]="{
+    'positive' : currentPrice >= lastPrice,
+    'negative' : currentPrice < lastPrice
+  }">{{currentPrice}}</span>
+</div>

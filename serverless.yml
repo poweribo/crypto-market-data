@@ -1,0 +1,32 @@
+service:
+ name: market-data-serverless
+
+frameworkVersion: '2'
+
+plugins:
+ - 'serverless-plugin-typescript'
+ - serverless-plugin-optimize
+ - serverless-offline
+
+provider:
+ name: aws
+ runtime: nodejs12.x
+
+functions:
+ main:
+   handler: dist/apps/api/main.handler
+   environment:
+      API_KEY: ${env:API_KEY}
+      API_SECRET: ${env:API_SECRET}
+   events:
+     - http:
+         method: any
+         path: /{any+}
+         cors: true
+
+package:
+  individually: true
+  include:
+    - .env
+
+useDotenv: true
