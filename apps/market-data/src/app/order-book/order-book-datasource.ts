@@ -16,6 +16,7 @@ export class OrderBookDataSource {
 
   public getData(rowLimit?: number): Order[] {
     return this.data.sort((a, b) => this.comparePrice(a, b))
+      .filter(item => item != undefined)
       .slice(0, rowLimit)
       .map(item => {
         return {price: item.price, size: item.size};
@@ -36,7 +37,7 @@ export class OrderBookDataSource {
   }
 
   public getIndex(price: number): number {
-    return this.data.findIndex((obj => obj.price === price));
+    return this.data.findIndex((obj => obj !== undefined && obj.price === price));
   }
 
   public addOrder(price: number, size: number): void {
@@ -52,7 +53,8 @@ export class OrderBookDataSource {
 
   public removeOrder(index: number, price: number, size: number): void {
     console.log(this.side + ' -- price ' + price + ' size ' + size + ' at ' + index);
-    this.data.splice(index, 1);
+    //this.data.splice(index, 1);
+    delete this.data[index];
   }
 
   // do insert sort to avoid re-sorting for every new price addition
