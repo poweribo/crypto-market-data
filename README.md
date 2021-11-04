@@ -8,7 +8,7 @@ An Isomorphic Web Application using Typescript
 
 ## Demo
 
-[Live Demo in AWS](http://market-data-client.s3-website-us-east-1.amazonaws.com/)
+[Live Demo (AWS)](http://market-data-client.s3-website-us-east-1.amazonaws.com/)
 
 
 ## Tech Stack
@@ -16,7 +16,7 @@ An Isomorphic Web Application using Typescript
 - [Angular / Typescript / RxJS](https://angular.io)
   - Angular / Typescript / RxJS
 - [NestJS](https://nestjs.com/)
-  - NodeJS Framework
+  - NodeJS Framework / Typescript
 - [Angular Material](https://material.angular.io/m)
   - Material Design components for Angular
 - [Angular Flex Layout](https://github.com/angular/flex-layout)
